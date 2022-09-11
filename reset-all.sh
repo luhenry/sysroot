@@ -37,7 +37,7 @@ PKGS=(
     $(test "$ARCH" = "amd64" && echo "g++-riscv64-linux-gnu" || true)
     libasound2-dev
     libatomic1
-    $(test "$DIST" != "focal" && echo "libboost-regex1.74.0" || true)
+    $(test "$DIST" = "jammy" && echo "libboost-regex1.74.0" || true)
     libc6-dbg
     libc6-amd64-cross
     libc6-riscv64-cross
@@ -74,4 +74,4 @@ sudo mkdir -p $(pwd)/$DIST-$ARCH$MOUNT
 sudo mount --bind $MOUNT $(pwd)/$DIST-$ARCH$MOUNT
 done
 
-done
+done # ARCHS
